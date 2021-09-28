@@ -1,6 +1,7 @@
-let location_1 = 3;
-let location_2 = 4;
-let location_3 = 5;
+let locRandom = Math.floor(Math.random() * 5);
+let location_1 = locRandom;
+let location_2 = locRandom + 1;
+let location_3 = locRandom + 2;
 let guess;
 let hits = 0;
 let guesses = 0;
@@ -17,11 +18,15 @@ while(isSunk == false){
                 alert("Попал!!!");
                 hits++;
     
-                    if(hits == 3){
-                    isSunk = true;
-                    alert("Корабль потоплен!");
-                    }
-                }
+                    if(hits == 3){ 
+                        isSunk = true;
+                        alert("Корабль потоплен!");
+                    } 
+                }  else{
+                    alert("Мимо!");
+                   }
         }
         
 }
+let stats = "Ты выйграл с " + guesses + " попытки " + (3/guesses);
+alert(stats);
