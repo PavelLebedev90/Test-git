@@ -5,8 +5,50 @@ var car = {
     year: 2007,
     passangers: 5,
     to4: true,
-    benzin: "AI-95"
+    benzin: "AI-95",
+    started: false,
+    start: function(){
+        if(this.fuel > 0){
+            this.started = true;
+        } else{
+            alert("Give me fuel, please");
+        }
+    },
+    stop: function(){
+        if(this.started){
+            this.started = false;
+        }else{
+            alert("Engine is now stop");
+        }
+    },
+    drive: function(){
+        if(this.started){
+            if(this.fuel > 0){
+            alert("ZOOM, ZOOM");
+            this.fuel--;
+            }else{
+                alert("Out of fuel !!!");
+                this.stop();
+            }
+        }
+            else{
+                alert("You need to start the engine first");
+            }
+        
+    },
+    fuel: 0,
+    addFuel: function(amount){
+        this.fuel = this.fuel + amount;
+    }
 };
+car.start();
+
+
+
+
+car.start();
+car.drive();
+
 function buyCar(cars){
     if(cars.odometr > 65000){
         return false;
@@ -43,6 +85,34 @@ console.log(secret);
 setSecret(superSecretFile, 2, " in Philadelfia");
 secret = getSecret(superSecretFile, 2);
 console.log(secret);
+//////////////////////////////////////////////////////////
+var eightBall = {
+    index: 0,
+    advice: ["yes", "no", "maybe", "not a chance"],
+    shake: function(){
+        this.index = this.index +1;
+        if(this.index >= this.advice.length){
+            this.index = 0;
+        }
+    },
+    look: function(){
+        return this.advice[this.index];
+    }
+};
+for(var prop in eightBall){
+    console.log(prop + ": " + eightBall[prop]);
+}
+eightBall["look"];
+eightBall.shake();
+console.log(eightBall.look());
+eightBall.shake();
+console.log(eightBall.look());
+eightBall.shake();
+console.log(eightBall.look());
+eightBall.shake();
+console.log(eightBall.look());
+eightBall.shake();
+console.log(eightBall.look());
 
 
 
